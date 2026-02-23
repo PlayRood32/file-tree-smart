@@ -1,0 +1,116 @@
+{
+  "_comment": [
+    "// File: package.json",
+    "// Location: package.json"
+  ],
+  "name": "file-tree-smart",
+  "displayName": "File Tree Smart",
+  "description": "Generate beautiful Markdown file trees from folders with optional icons.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "PlayRood32",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:fileTreeSmart.generateWithIcons",
+    "onCommand:fileTreeSmart.generateNoIcons",
+    "onCommand:fileTreeSmart.generatePrompt"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fileTreeSmart.generateWithIcons",
+        "title": "Generate Markdown Tree (with icons)"
+      },
+      {
+        "command": "fileTreeSmart.generateNoIcons",
+        "title": "Generate Markdown Tree (no icons)"
+      },
+      {
+        "command": "fileTreeSmart.generatePrompt",
+        "title": "Generate Markdown Tree..."
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "fileTreeSmart.generateWithIcons",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation@50"
+        },
+        {
+          "command": "fileTreeSmart.generateNoIcons",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation@51"
+        },
+        {
+          "command": "fileTreeSmart.generatePrompt",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation@52"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "fileTreeSmart.generateWithIcons"
+        },
+        {
+          "command": "fileTreeSmart.generateNoIcons"
+        },
+        {
+          "command": "fileTreeSmart.generatePrompt"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "File Tree Smart",
+      "properties": {
+        "fileTreeSmart.defaultWithIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Default icon mode when a command does not explicitly choose mode."
+        },
+        "fileTreeSmart.maxDepth": {
+          "type": "number",
+          "default": 12,
+          "minimum": 1,
+          "description": "Maximum folder depth to traverse when generating the tree."
+        },
+        "fileTreeSmart.showHiddenFiles": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to include hidden files and folders that start with a dot."
+        },
+        "fileTreeSmart.respectGitignore": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to respect .gitignore rules (root and nested)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.33",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-electron": "^2.4.1",
+    "typescript": "^5.5.3"
+  },
+  "author": "PlayRood",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlayRood32/file-tree-smart.git"
+  },
+  "homepage": "https://github.com/PlayRood32/file-tree-smart",
+  "bugs": {
+    "url": "https://github.com/PlayRood32/file-tree-smart/issues"
+  }
+}
