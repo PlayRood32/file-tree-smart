@@ -6,7 +6,7 @@
   "name": "file-tree-smart",
   "displayName": "File Tree Smart",
   "description": "Generate beautiful Markdown file trees from folders with optional icons.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "publisher": "PlayRood32",
   "engines": {
@@ -97,6 +97,7 @@
     "@types/node": "^20.19.33",
     "@types/vscode": "^1.90.0",
     "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.9.2",
     "typescript": "^5.5.3"
   },
   "author": "PlayRood",
