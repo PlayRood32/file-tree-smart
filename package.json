@@ -9,6 +9,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "publisher": "PlayRood32",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.90.0"
   },
