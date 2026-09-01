@@ -6,7 +6,7 @@
   "name": "file-tree-smart",
   "displayName": "File Tree Smart",
   "description": "Generate beautiful Markdown file trees from folders with optional icons.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "publisher": "PlayRood32",
   "icon": "logo.png",
