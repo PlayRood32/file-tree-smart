@@ -15,11 +15,6 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:fileTreeSmart.generateWithIcons",
-    "onCommand:fileTreeSmart.generateNoIcons",
-    "onCommand:fileTreeSmart.generatePrompt"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
