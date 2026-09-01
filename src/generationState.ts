@@ -5,6 +5,7 @@ import * as path from 'path';
 import { readFile } from 'fs/promises';
 import * as vscode from 'vscode';
 
+import { ALWAYS_IGNORED_BUILD_DIRS } from './constants/ignorePatterns';
 import { fallbackIgnoreRules, isIgnoredByRules, parseGitignore } from './gitignore';
 import { GitignoreRule, TreeGenerationOptions } from './types';
 import { normalizePosixPath } from './utils/pathUtils';
@@ -55,6 +56,13 @@ export class GenerationState {
   }
 
   shouldIgnore(relPath: string, isDirectory: boolean, activeRules: GitignoreRule[]): boolean {
+    if (isDirectory) {
+      const name = relPath.split('/').pop() ?? relPath;
+      if (ALWAYS_IGNORED_BUILD_DIRS.has(name)) {
+        return true;
+      }
+    }
+
     if (!this.options.respectGitignore) {
       return false;
     }
